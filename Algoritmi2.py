@@ -11,7 +11,7 @@ import random as r
 
 
 class grafo:
-
+    #Classe grafo. questa NON dovrebbe essere utilizzata per istanziare grafi
     def __init__(self, nodi, archi, oriented=False, cappi=False):
 
         archi_set = set()
@@ -123,7 +123,7 @@ class grafoMatriciale(grafo):
 
 
 class grafoLista(grafo):
-
+    #Grafo implementato con liste di adiacenza
     def __init__(self, lista, oriented=False, cappi=False):
 
         nodi = range(len(lista))
@@ -148,7 +148,9 @@ class grafoLista(grafo):
 
     @staticmethod
     def casuale(n, p=0.5, oriented=False):
-
+        #restituisce un grafo implementato con liste di adiacenza casuale
+        #è possibile regolare la probabilità che tra due nodi ci siano archi
+        #è possibile scegliere se farlo orientato o meno
         lista = [[] for _ in range(n)]
 
         if oriented:
