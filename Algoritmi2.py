@@ -56,6 +56,7 @@ class grafo:
         )
 
         plt.show()
+        
 
 
 class grafoMatriciale(grafo):
@@ -75,6 +76,9 @@ class grafoMatriciale(grafo):
 
         self.matrice = matrice
 
+    def __iter__(self):
+        return self.matrice.__iter__()
+    
 
     @staticmethod
     def casuale(n, p=0.5, oriented=False):
@@ -144,7 +148,11 @@ class grafoLista(grafo):
         super().__init__(nodi, archi, oriented)
 
         self.lista = nuova_lista
-
+        
+        
+    def __iter__(self):
+        return self.lista.__iter__()
+    
 
     @staticmethod
     def casuale(n, p=0.5, oriented=False):
@@ -188,7 +196,9 @@ class grafoDizionario(grafo):
         super().__init__(nodi, archi, oriented)
 
         self.dizionario = dizionario
-
+        
+    def __iter__(self):
+        return self.dizionario.__iter__()
 
 
 if __name__ == "__main__":
