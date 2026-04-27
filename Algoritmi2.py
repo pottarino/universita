@@ -153,6 +153,11 @@ class grafoLista(grafo):
     def __iter__(self):
         return self.lista.__iter__()
     
+    def __getitem__(self, key):
+        return (self.lista[key])
+    
+    def __len__(self):
+        return len(self.lista)
 
     @staticmethod
     def casuale(n, p=0.5, oriented=False):
