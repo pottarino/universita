@@ -185,7 +185,6 @@ class grafoLista(grafo):
 
         return grafoLista(lista, oriented)
 
-
 class grafoDizionario(grafo):
     #grafo con dizionario
     def __init__(self, dizionario, oriented=False):
@@ -204,6 +203,47 @@ class grafoDizionario(grafo):
         
     def __iter__(self):
         return self.dizionario.__iter__()
+
+
+class alberoVettorePadri(grafo):
+    # albero implementato tramite vettore dei padri
+    # l'indice rappresenta il nodo, il valore contenuto rappresenta il padre
+    def __init__(self, padri, oriented=False):
+
+        nodi = range(len(padri))
+        archi = []
+
+        for i, p in enumerate(padri):
+            if p is not None and p != -1 and p != i:
+                archi.append((p, i))
+
+        super().__init__(nodi, archi, oriented)
+
+        self.padri = padri
+
+    def __iter__(self):
+        return self.padri.__iter__()
+
+    def __getitem__(self, key):
+        return self.padri[key]
+
+    def __len__(self):
+        return len(self.padri)
+
+    @staticmethod
+    def casuale(n, oriented=False):
+        # Restituisce un albero casuale implementato come vettore dei padri
+        # Per garantire che sia un albero valido (connesso e senza cicli),
+        # ogni nodo i (da 1 a n-1) sceglie un padre a caso tra i nodi da 0 a i-1.
+        if n <= 0:
+            return alberoVettorePadri([], oriented)
+
+        padri = [-1] * n  # Il nodo 0 sarà la radice (padre -1)
+
+        for i in range(1, n):
+            padri[i] = r.randint(0, i - 1)
+
+        return alberoVettorePadri(padri, oriented)
 
 
 if __name__ == "__main__":
