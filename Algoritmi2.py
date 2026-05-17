@@ -246,5 +246,51 @@ class alberoVettorePadri(grafo):
         return alberoVettorePadri(padri, oriented)
 
 
+import random as r
+
+
+class alberoListeAdiacenza(grafo):
+    # albero implementato tramite liste di adiacenza (lista di liste)
+    # l'indice rappresenta il nodo, la lista contenuta rappresenta i nodi connessi
+    def __init__(self, liste_adiacenza, oriented=False):
+
+        nodi = range(len(liste_adiacenza))
+        archi = []
+
+        for u, vicini in enumerate(liste_adiacenza):
+            for v in vicini:
+                archi.append((u, v))
+
+        super().__init__(nodi, archi, oriented)
+
+        self.liste_adiacenza = liste_adiacenza
+
+    def __iter__(self):
+        return self.liste_adiacenza.__iter__()
+
+    def __getitem__(self, key):
+        return self.liste_adiacenza[key]
+
+    def __len__(self):
+        return len(self.liste_adiacenza)
+
+    @staticmethod
+    def casuale(n, oriented=False):
+
+        if n <= 0:
+            return alberoListeAdiacenza([], oriented)
+
+        liste_adiacenza = [[] for _ in range(n)]
+
+        for i in range(1, n):
+            padre = r.randint(0, i - 1)
+
+            liste_adiacenza[padre].append(i)
+
+            if not oriented:
+                liste_adiacenza[i].append(padre)
+
+        return alberoListeAdiacenza(liste_adiacenza, oriented)
+
 if __name__ == "__main__":
     pass
