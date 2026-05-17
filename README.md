@@ -1,6 +1,13 @@
-Ciao! questa è una repository github dove pubblico la mia libreria di progettazione di algoritmi.
-è una cosa amatoriale per cui consiglio di controllare il mio operato prima di utilizzarla.
-se doveste scoprire bug sarei lieto di essere informato per poter fixare.
-Inoltre, sono anche presenti alcune mie soluzioni ad alcuni esercizi, 
-presentati in classe o che ho svolto autonomamente
-buon lavoro a tutti!
+# Progetti Universitari – Sapienza Università di Roma
+
+Benvenuti nel mio spazio di condivisione! In questo repository ho raccolto i principali lavori, progetti ed esercizi che ho sviluppato durante il mio percorso accademico alla Sapienza.
+
+### Cosa troverai qui dentro:
+* **Progetti d'esame:** Software, architetture o analisi complete realizzate per i corsi.
+* **Esercitazioni:** Laboratori settimanali, algoritmi e test di codice.
+* **Materiale di studio:** Codice utile per ripassare o approfondire i concetti teorici.
+
+La repo è ancora in costruzione!!!
+
+---
+*Nota: Tutto il materiale è organizzato in cartelle divise per materia.*
